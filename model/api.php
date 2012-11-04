@@ -1,6 +1,4 @@
 <?php
-echo '<pre>';
-
 date_default_timezone_set('Europe/Prague');
 
 require_once 'dibi/dibi/dibi.php';
@@ -11,9 +9,7 @@ require_once 'repositories/CommentsRepository.php';
 require_once 'repositories/LinksRepository.php';
 require_once 'repositories/UsersRepository.php';
 
-$arguments = $_GET;
-
-print_r($arguments);
+$arguments = $_POST;
 
 $action = $arguments['action'];
 $table = $arguments['table'];

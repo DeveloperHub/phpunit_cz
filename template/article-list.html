@@ -1,0 +1,15 @@
+<div class="row-fluid" id="articles" ng-controller="ArticleCtrl">
+    <div class="span12" ng-repeat="article in articles | filter:query">
+        <h2> {{article.name}} </h2>
+        <p> {{article.perex}} </p>
+        <p>
+            <a class="btn btn-small" href="#"><i class="icon-comment"></i> {{article.count_posts}}</a>
+            <a class="btn btn-small" href="#/article/{{article.id}}">Zobrazit celý článek &raquo;</a>
+            <span ng-repeat="tag in article.tags">
+                <a class="btn btn-small" href="#"><i class="icon-tag"></i> {{tag.name}}</a>
+            </span>
+        </p>
+    </div>
+    <!--/span-->
+
+</div><!--/row-->

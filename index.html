@@ -26,6 +26,7 @@
 	<![endif]-->
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+	<script src="js/controllers/article.js"></script>
 
 	<!-- Fav and touch icons -->
 	<link rel="shortcut icon" href="../assets/ico/favicon.ico">
@@ -35,7 +36,7 @@
 	<link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
 </head>
 
-<body>
+<body ng-controller="ArticleCtrl">
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
@@ -70,18 +71,15 @@
 				<p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
 			</div>
 			<div class="row-fluid">
-				<div class="span12">
-					<h2>PHPUnit > Test Drive Bug Fixing < GitHub</h2>
+				<div class="span12" ng-repeat="article in articles">
+					<h2> {{article.name}} </h2>
+					<p> {{article.perex}} </p>
 					<p>
-						GitHub je geniální nástroj pro správu projektů v systému správy verzí Git. GitHub umožňuje otvírat tzv. „Issues“. Issues lze použít jako seznam bugů, na které ostatní vývojáři projektu, který sledují, narazili a bylo by vhodné je fixnout, či podniknout kroky k jejich zavření a tím i k vyřešění. PHPUnit obsahuje rozšíření, pro podporu Test Drive Bug Fixing a tím získáváme možnost, jak automatizovaně otvírat a zavírat issues v GitHubu v závislosti na úspěšnosti testů.
-					</p>
-					<p>
-						<a class="btn btn-small" href="#"><i class="icon-comment"></i> 10</a>
+						<a class="btn btn-small" href="#"><i class="icon-comment"></i> {{article.count_posts}}</a>
 						<a class="btn btn-small" href="#">Zobrazit celý článek &raquo;</a>
-						<a class="btn btn-small" href="#"><i class="icon-tag"></i> selenium</a>
-						<a class="btn btn-small" href="#"><i class="icon-tag"></i> phpunit</a>
-						<a class="btn btn-small" href="#"><i class="icon-tag"></i> testing</a>
-						<a class="btn btn-small" href="#"><i class="icon-tag"></i> github</a>
+							<span ng-repeat="tag in article.tags">
+								<a class="btn btn-small" href="#"><i class="icon-tag"></i> {{tag.name}}</a>
+							</span>
 					</p>
 				</div>
 				<!--/span-->
@@ -118,23 +116,6 @@
 	</footer>
 
 </div><!--/.fluid-container-->
-
-<!-- Le javascript
-	================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/bootstrap-transition.js"></script>
-<script src="../assets/js/bootstrap-alert.js"></script>
-<script src="../assets/js/bootstrap-modal.js"></script>
-<script src="../assets/js/bootstrap-dropdown.js"></script>
-<script src="../assets/js/bootstrap-scrollspy.js"></script>
-<script src="../assets/js/bootstrap-tab.js"></script>
-<script src="../assets/js/bootstrap-tooltip.js"></script>
-<script src="../assets/js/bootstrap-popover.js"></script>
-<script src="../assets/js/bootstrap-button.js"></script>
-<script src="../assets/js/bootstrap-collapse.js"></script>
-<script src="../assets/js/bootstrap-carousel.js"></script>
-<script src="../assets/js/bootstrap-typeahead.js"></script>
 
 </body>
 </html>

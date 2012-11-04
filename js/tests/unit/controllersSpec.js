@@ -1,4 +1,4 @@
-describe('ArticleCtrl', function(){
+describe('Controllers', function(){
 
     it('should create "articles" model with 3 articles', function() {
         var scope = {},

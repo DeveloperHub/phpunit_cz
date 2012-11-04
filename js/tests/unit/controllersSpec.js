@@ -6,4 +6,12 @@ describe('Controllers', function(){
 
         expect(scope.articles.length).toBe(3);
     });
+
+    it('exists any category', function() {
+       var scope = {},
+           ctrl = new CategoryCtrl(scope);
+
+        expect(scope.category.length).toBe(4);
+    });
+
 });

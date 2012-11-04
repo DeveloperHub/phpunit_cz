@@ -1,13 +1,13 @@
 describe('PHPUnit', function() {
 
-    describe('Article list view', function() {
+    describe('Index.html e2e tests suite', function() {
 
         beforeEach(function() {
             browser().navigateTo('../../../index.html');
         });
 
 
-        it('should filter the article list as user types into the search box', function() {
+        it('exists any article', function() {
             expect(repeater('#articles div').count()).toBe(3);
 
             input('query').enter('github');
@@ -16,6 +16,10 @@ describe('PHPUnit', function() {
             input('query').enter('phpunit');
             expect(repeater('#articles div').count()).toBe(3);
 
+        });
+
+        it('exists any category', function(){
+           expect(repeater('#category-list li').count()).toBe(7);
         });
     });
 });

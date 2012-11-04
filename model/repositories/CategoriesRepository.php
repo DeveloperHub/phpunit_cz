@@ -11,6 +11,6 @@ class CategoriesRepository extends BaseRepository
 	{
 		parent::__construct();
 
-		self::$table = 'categories';
+		$this->table = 'categories';
 	}
 }

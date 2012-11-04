@@ -11,6 +11,6 @@ class CommentsRepository extends BaseRepository
 	{
 		parent::__construct();
 
-		self::$table = 'comments';
+		$this->table = 'comments';
 	}
 }

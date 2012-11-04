@@ -11,6 +11,6 @@ class UsersRepository extends BaseRepository
 	{
 		parent::__construct();
 
-		self::$table = 'users';
+		$this->table = 'users';
 	}
 }

@@ -11,24 +11,24 @@ class ArticlesRepository extends BaseRepository
 	{
 		parent::__construct();
 
-		self::$table = 'articles';
+		$this->table = 'articles';
 	}
 
 
 	public function fetchAllBy(array $where)
 	{
-		$articles = parent::fetchAllBy($where);
-		if (count($articles))
-		{
-			$sql = '
-				SELECT [t].*, COUNT([c.id]) AS [count_comments]
-				FROM %n [t]
-					LEFT JOIN %n [lt] ON [lt.id_articles]=[t.id]
-				WHERE %and
-			';
-			return $this->connect->fetchAll($sql, self::$table, CommentsRepository::$table, $where);
-		}
+		$categories = new CategoriesRepository;
+		$comments = new CommentsRepository;
 
-		return $articles;
+		$sql = '
+			SELECT [t].*, [lt1.name] AS [category_name], COUNT([lt2.id]) AS [count_comments]
+			FROM %n [t]
+				LEFT JOIN %n [lt1] ON [lt1.id]=[t.id_' . $categories->table . ']
+				LEFT JOIN %n [lt2] ON [lt2.id_' . $this->table . ']=[t.id]
+			WHERE %and
+			GROUP BY [t.id]
+		';
+
+		return $this->connect->fetchAll($sql, $this->table, $categories->table, $comments->table, $where);
 	}
 }

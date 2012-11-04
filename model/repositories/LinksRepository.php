@@ -11,6 +11,6 @@ class LinksRepository extends BaseRepository
 	{
 		parent::__construct();
 
-		self::$table = 'links';
+		$this->table = 'links';
 	}
 }
